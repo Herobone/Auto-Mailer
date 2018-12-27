@@ -30,13 +30,13 @@
 $to_email = $_GET["email"];
 
 $email_text =  file_get_contents("emailTemplate.html");
-$from = "mailer@example.com.de";
+$from = "mailer@herobone.de";
 $subject = "Hello there!";
 
 $header  = "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/html; charset=utf-8\r\n";
 $header .= "From: Your Name <$from>\r\n";
-$header .= "Reply-To: do-not-reply@example.com\r\n";
+$header .= "Reply-To: $to_mail\r\n";
 $header .= "X-Mailer: PHP ". phpversion();
 
 $email_text = str_replace("§§EMAIL_PLACEHOLDER§§", $to_email, $email_text);
